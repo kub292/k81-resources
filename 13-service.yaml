@@ -1,0 +1,13 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nginx
+spec:
+  selector:
+    app: forntend
+    component: expense
+    environment: dev
+  ports:
+  - protocol: TCP
+    port: 80 #service port
+    targetPort: 80  #target port

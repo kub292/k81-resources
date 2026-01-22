@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-labels
+spec:
+  type: LoadBalancer
+  selector:
+    name: forntend
+    project: expense
+    component: forntend
+    environment: dev
+  ports:
+  - protocol: TCP
+    port: 80        #service port
+    targetPort: 80  #target port
+    nodePort: 32761
+

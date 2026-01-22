@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-np
+spec:
+  type: NodePort
+  selector:
+    name: forntend
+    project: expense
+    component: forntend
+    environment: dev
+  ports:
+  - protocol: TCP
+    port: 80        #service port
+    targetPort: 80  #target port
+    
