@@ -1,11 +1,12 @@
-kind: Pod
+kind: Service
 apiVersion: v1
 metadata:
   name: nginx
 spec:
   selector:
-    app: forntend
-    component: expense
+    name: forntend
+    project: expense
+    component: forntend
     environment: dev
   ports:
   - protocol: TCP
