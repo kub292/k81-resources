@@ -9,7 +9,7 @@ metadata:
 
 
 spec:
-  replicas: 3
+  replicas: 20
   selector:
     matchLabels:
       app: nginx
@@ -26,4 +26,4 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:stable-perl
+        image: nginx
