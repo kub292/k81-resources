@@ -26,37 +26,37 @@ spec:
     requests:
       storage: 5Gi
 
-# ---
-# apiVersion: v1
-# kind: Pod
-# metadata:
-#   name: nginx-static
-#   labels:
-#     purpose: ebs-newstatic
-#     project: expense
-# spec:
-#   containers:
-#   - name: nginx
-#     image: nginx
-#     volumeMounts:
-#     - mountPath: /usr/share/nginx/html
-#       name: persistent-storage
-#   volumes:
-#   - name: persistent-storage
-#     persistentVolumeClaim:
-#       claimName: ebs-static
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-newstatic
+  labels:
+    purpose: ebs-newstatic
+    project: expense
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts:
+    - mountPath: /usr/share/nginx/html
+      name: persistent-storage
+  volumes:
+  - name: persistent-storage
+    persistentVolumeClaim:
+      claimName: ebs-newstatic
 
-# ---
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: nginx-lb
-# spec:
-#   type: LoadBalancer
-#   selector:
-#     purpose: ebs-static
-#     project: expense
-#   ports:
-#   - port: 80
-#     targetPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-lb
+spec:
+  type: LoadBalancer
+  selector:
+    purpose: ebs-newstatic
+    project: expense
+  ports:
+  - port: 80
+    targetPort: 80
  
