@@ -5,9 +5,9 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    name: forntend
+    name: frontend
     project: expense
-    component: forntend
+    component: frontend
     environment: dev
   ports:
   - protocol: TCP
